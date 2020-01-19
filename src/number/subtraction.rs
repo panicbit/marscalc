@@ -29,7 +29,7 @@ impl ops::SubAssign for Number {
                 carry = 1;
                 *a += BASE;
             }
-            
+
             *a -= b;
         }
 

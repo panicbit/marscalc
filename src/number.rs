@@ -127,12 +127,16 @@ impl Number {
             Ordering::Less => true,
             Ordering::Greater => false,
             Ordering::Equal => {
-                let digits_a = self.digits.iter();
-                let digits_b = other.digits.iter();
+                let digits_a = self.digits.iter().take(self.num_int_digits());
+                let digits_b = other.digits.iter().take(other.num_int_digits());
 
                 for (a, b) in digits_a.zip(digits_b) {
                     if a < b {
                         return true;
+                    }
+
+                    if a > b {
+                        return false;
                     }
                 }
 
@@ -140,8 +144,6 @@ impl Number {
             },
         }
     }
-
-    
 }
 
 impl ops::Neg for Number {
