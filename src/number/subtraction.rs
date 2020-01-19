@@ -1,6 +1,6 @@
 use std::ops;
 use std::mem::swap;
-use super::Number;
+use super::{Number, BASE};
 
 impl ops::SubAssign for Number {
     fn sub_assign(&mut self, mut other: Self) {
@@ -27,7 +27,7 @@ impl ops::SubAssign for Number {
                 carry = 0;
             } else {
                 carry = 1;
-                *a += 10;
+                *a += BASE;
             }
             
             *a -= b;
