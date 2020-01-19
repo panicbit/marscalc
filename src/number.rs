@@ -144,6 +144,15 @@ impl Number {
             },
         }
     }
+
+    fn shift_comma_left(&mut self) {
+        if self.comma_index > 0 {
+            self.comma_index -= 1;
+            return;
+        }
+
+        self.digits.push_front(0);
+    }
 }
 
 impl ops::Neg for Number {

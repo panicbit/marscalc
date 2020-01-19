@@ -90,4 +90,14 @@ mod tests {
 
         assert_eq!(result, "800000000000000000000000000000000,0000000000000000000000000007");
     }
+
+
+    #[test]
+    fn calc_0_dot_2_times_0_dot_2() {
+        let a: Number = "0,2".parse().unwrap();
+        let b: Number = "0,2".parse().unwrap();
+        let result = (a * b).to_string();
+
+        assert_eq!(result, "0,04");
+    }
 }

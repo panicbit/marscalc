@@ -26,11 +26,10 @@ impl ops::MulAssign for Number {
 
         let num_fracts = self.num_fract_digits() + other.num_fract_digits();
 
-        if result.comma_index >= num_fracts {
-            result.comma_index -= num_fracts;
+        for _ in 0 .. num_fracts {
+            result.shift_comma_left();
         }
 
-        
         if self.is_positive != other.is_positive {
             result.is_positive = false;
         }
